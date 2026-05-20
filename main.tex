@@ -1,0 +1,293 @@
+%% 
+%% Copyright 2007-2025 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.3 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+
+\documentclass[review,12pt]{elsarticle}
+
+%% Packages ####################
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{xurl} % Allows URLs to break at any character
+\usepackage[hidelinks]{hyperref} % Makes URLs clickable
+
+
+
+% --- Define a style for strings ---
+\lstdefinestyle{searchstring}{
+    basicstyle=\ttfamily\small, % Use a small typewriter font
+    breaklines=true,            % ! Enable line wrapping
+    breakatwhitespace=true,     % Wrap only at spaces (cleaner)
+    columns=fullflexible,       % Flexible columns
+    keepspaces=true,            % Preserve spaces
+    showstringspaces=false,     % Don't mark spaces in strings
+    frame=none                  % No frame
+}
+\lstset{style=searchstring} % Set this as the default
+
+
+
+%%##########################################
+
+\journal{Intelligent Medicine}
+\begin{document}
+
+\begin{frontmatter}
+
+
+\title{Large Multimodal Model-Driven Clinical Decision Support Systems: Mapping Architectures to Decision Requirements—A Scoping Review Protocol } %% Article title
+
+\author[unioviedo]{Juan C. España-Lopera} 
+\author[unioviedo]{Milad Jafari Barani} 
+%% Author name
+\author[unioviedo]{Edward Rolando Núñez-Valdez}
+\author[unioviedo]{Vicente García-Díaz}
+
+
+%% Author affiliation
+\affiliation[unioviedo]{organization={School of Computer Science, Universidad de Oviedo},%Department and Organization
+            addressline={C/ Valdés Salas, 11}, 
+            city={Oviedo},
+            postcode={33007}, 
+            state={Asturias},
+            country={Spain}}
+
+% %% Abstract
+% \begin{abstract}
+
+% \end{abstract}
+
+
+% %% Keywords
+% \begin{keyword}
+% Artificial Intelligence \sep Large Language Model (LLM) \sep Large Multimodal Model (LMM), Clinical Decision Support System (CDSS) \sep Scoping review
+
+% \end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{intro}
+
+\subsection{Background}
+
+The current landscape of Large Multimodal Model-based clinical decision support systems (LMM-CDSS) is characterized by a tension between unprecedented technological acceleration and pronounced systemic fragmentation. As generative AI architectures move from research proofs-of-concept to real-world clinical deployment at an increasingly rapid rate \cite{Maity2025, Bajwa2021}, this progress unfolds within a growing, interdisciplinary void. The required convergence of computer science, clinical medicine, ethics, and regulatory science \cite{Markus2021, Sadeghi2024} has produced substantial heterogeneity in both data modalities—spanning unstructured EHR data to complex multi-sensor time series—and methodological approaches, including Retrieval-Augmented Generation (RAG) and multi-agent paradigms \cite{Maity2025, Albahri2020}. Although this diversity is a powerful driver of innovation, it has advanced faster than the formation of shared conceptual frameworks, leaving a significant gap in our understanding of how these disparate components should be integrated into coherent decision-making archetypes that support safe clinical use.
+
+To verify the originality of this study and ensure a non-redundant contribution to the field, a multi-stage preliminary research strategy was executed in February 2026. This process began with a systematic search for published scoping and systematic reviews at the intersection of clinical CDSS and LMMs. The search scope was strictly constrained to clinical decision-making, deliberately excluding administrative automation, medical training strategies, and patient-facing AI applications. A specific emphasis was placed on the governing attributes of clinical decisions, examining the influence of medical specialties and the inherent complexity of decision-making tasks. This preliminary inquiry utilized PubMed (biomedical), IEEE Xplore (technological), and Web of Science (multidisciplinary) databases, supplemented by a targeted audit of the \textit{JBI Evidence Synthesis} journal and formal registry searches across OSF Registries and PROSPERO. To ensure a comprehensive identification of both protocols and published work, this traditional search was augmented by AI-driven discovery using Perplexity and NotebookLM. These tools were specifically employed to identify additional references that may have escaped standard database indexing, particularly emerging technical reports and recently registered protocols. These collective verification steps confirmed that no existing or ongoing reviews address the specific aim of this study, notably the application of a decision-centric framework aligned with LMM architectural functionalities.
+
+Preliminary research has established that the landscape of Large Multimodal Models (LMMs) in healthcare is characterized by significant technical velocity. Foundational scoping and systematic reviews have successfully mapped the global distribution of AI applications across broad medical specialties, identifying a high degree of performance heterogeneity across diverse clinical tasks \cite{alkalbani2025systematic, bedi2025testing}. Specifically, recent benchmarks have introduced practical three-tier frameworks to align agent architectures with task complexity, ranging from discrete micro-tasks to multi-agent ecosystems \cite{gorenshtein2025ai}. While these studies provide essential data on architectural alignment and the role of customization pipelines like Retrieval-Augmented Generation (RAG) \cite{yang2026building}, they typically treat medical specialties as static evaluation categories rather than active governors of decision attributes.
+
+Our protocol proposes to transcend broad complexity tiers by employing a decision-centric framework that analyzes how the specific nature of a medical specialty dictates decision attributes and therefore, architectural requirements. Current literature distinguishes between single-agent systems for narrow, vertical domains and multi-agent ecosystems for high-stakes, horizontal problems requiring the synthesis of conflicting evidence \cite{gorenshtein2025ai, seoane_2025_prospero}. However, a critical gap remains in formalizing how these decisions demand vertical pathophysiological reasoning versus horizontal multidisciplinary integration. Furthermore, while handling long temporal sequences and temporal reasoning are recognized as significant future directions \cite{asif2026impact}, existing reviews often treat clinical tasks as one-off judgments. This research specifically addresses this limitation by distinguishing between static clinical snapshots and longitudinal reasoning trajectories over evolving patient histories.
+
+To maintain high precision and clinical relevance, this review is strictly delimited to the role of the Digital Practitioner in direct clinical decision-making. This focus distinguishes the current scope from broader foundational works that include healthcare administrative tasks (e.g., billing, scheduling), medical education and licensing exams, or patient-facing self-triage tools \cite{alkalbani2025systematic, liang_2024, busch2025current}. Finally, whereas contemporary research evaluates specialized fine-tuned models primarily through the lens of training efficiency \cite{yang2026building}, our approach analyzes how specific clinical case types and specialty-driven constraints force architectural evolution. By centering on these functional decision archetypes, the review provides a more fine-grained taxonomy of procedural complexity than is currently available in the literature.
+
+ 
+
+\subsection{Objectives}
+
+The primary objective of this scoping review is to map how clinical decision characteristics act as the governor of system design in LMM-driven clinical decision support systems.
+
+Specifically, the review aims to:
+
+\begin{itemize}
+    
+    \item \textbf{Characterize the Decision space:} Identify and formally represent the principal factors that collectively specify the fundamental properties of a clinical decision space. These include, for example, the level and type of inference required in highly specialized clinical contexts as compared to the degree of integration necessary in cross-specialty or multi-disciplinary systems; the applicable regulatory and normative constraints (e.g., EU AI Act, specialty-specific clinical guidelines); the level of clinical criticality and risk; as well as additional relevant determinants that shape the operational, ethical, and legal boundaries of decision-making processes.
+    
+    \item \textbf{Develop a Taxonomy of the Clinical Decision Space:} To construct a taxonomy of decision space archetypes that incorporates the identified characterization. This entails analyzing how the interaction between these factors collectively determines the structural specifications and constraints of clinical decision-making tasks.
+    
+    \item  \textbf{Analyze the Architectural Alignment to Clinical Constraints:} To identify how specific clinical decision factors force technical evolutions in system design by mapping the problem/decision Space and the Solution Space. This involves investigating how high-complexity clinical requirements necessitate the integration of advanced architectural paradigms, such as Multi-Agent Systems (MAS) for integrative breadth, temporal modules for longitudinal reasoning, and Advanced Explainability (XAI) or Retrieval-Augmented Generation (RAG) for fact-checking and clinical justification.
+
+    \item \textbf{Evaluate the Determinants of Real-World Clinical Deployment:} To examine how the alignment between decision characteristics and system architecture influences the transition from experimental prototypes to clinical-grade implementation. This involves analyzing how factors such as Advanced Explainability (XAI), fact-checking mechanisms such as RAG, and the management of high-stakes clinical actions drive the development of deployment-ready solutions capable of maintaining logical fidelity and trustworthiness across heterogeneous medical workflows.
+
+    
+    \end{itemize}
+
+
+
+\subsection{Review Questions}
+
+The following research questions will guide this scoping review:
+
+\noindent \textbf{Primary Question:}
+\begin{itemize}
+\item How do clinical decision characteristics act as the governor for the design and implementation of Large Multimodal Model (LMM)-driven clinical decision support systems?
+\end{itemize}
+
+\noindent \textbf{Sub-questions:}
+\begin{enumerate}
+\item \textbf{Characterizing the Decision Space:} What are the principal factors (e.g., specialized inference vs. multi-disciplinary integration, regulatory constraints, and clinical risk) that define the operational, ethical, and legal boundaries of a clinical decision space?
+\item \textbf{Taxonomy of the Decision Space:} How can these identified factors be used to construct a taxonomy of clinical decision archetypes that reflects the structural specifications and constraints of different medical tasks?
+\item \textbf{Architectural Alignment:} How do specific clinical decision factors force technical evolutions in system design, specifically requiring advanced paradigms such as Multi-Agent Systems, temporal modules, or fact-checking mechanisms like RAG?
+\item \textbf{Deployment Determinants:} How does the alignment between decision characteristics and system architecture influence the transition from experimental prototypes to clinical-grade implementations that maintain trust and logical fidelity?
+\end{enumerate}
+
+
+
+\section{Inclusion Criteria}
+
+The inclusion criteria for this scoping review are structured according to the PCC (Population, Concept, Context) framework to ensure direct alignment with the study's decision-centric objectives.
+
+
+
+\subsection{Population:} 
+
+This review considers studies involving Digital Practitioners, defined as licensed healthcare professionals (physicians, specialists, nurses, or residents) and multidisciplinary clinical teams utilizing LMM-CDSS within a professional workflow.
+
+\begin{itemize}
+\item \textbf{Inclusion:} Clinicians across all medical specialties and cross-specialty diagnostic teams.
+\item \textbf{Exclusion:} Studies focusing exclusively on patient-facing applications (self-diagnosis, symptom checkers), undergraduate medical students (educational tools), or administrative staff (billing/scheduling).
+\end{itemize}
+
+\subsection{Concept:} The core concept is the Large Multimodal Model-driven Clinical Decision Support System (LMM-CDSS). This encompasses Large Multimodal Models (LMMs) and Large Language Models (LLMs) used to process clinical data (text, images, vitals, etc.) for clinical decision support.
+
+\begin{itemize}
+    \item \textbf{Inclusion:} The system must produce patient-specific recommendations intended to support a clinical decision (e.g., diagnosis, treatment, prognosis, triage, or discharge planning).
+
+    \item \textbf{Exclusion:} Non-Generative AI: Standalone traditional machine learning (e.g., Random Forest, CNN-only, SVM) or rule-based expert systems lacking a generative transformer-based core. Operational/Administrative Tasks: Tools used exclusively for administrative automation (e.g., automated scribing, billing, ICD coding) or general medical education/information retrieval without a patient-specific recommendation or decision context.
+    
+\end{itemize}
+
+\subsection{Context:} The review encompasses all clinical environments where medical decisions are formulated, ranging from traditional infrastructure (Hospitals, Clinics, Emergency Departments) to resource-constrained settings (Rural, Remote, or Mobile-based care). Additionally, the setting includes computational environments to accommodate benchmark and validation studies that utilize standardized medical datasets.
+
+\begin{itemize}
+    \item \textbf{Inclusion:} This scoping review adopts a global perspective and spans all medical specialties. To trace how generalism and specialization have developed, it explicitly focuses on two decision frameworks, specialized Decisions, cross-Specialization Decisions.  
+    \item \textbf{Exclusion:} Non-clinical hospital management (resource allocation, bed management), public health policy modeling without direct practitioner interaction, and medical imaging software that performs only segmentation without a decision-support component.
+\end{itemize}
+
+\subsection{Types of Sources and Evidence:} This review will consider primary and secondary research published in peer-reviewed journals and conference proceedings.
+\begin{itemize}
+    \item \textbf{Language:} Only studies published in English will be included.
+    \item \textbf{Date Range:} The search will be limited to evidence published from 2023 to the present, reflecting the emergence of multimodal architectural paradigms.
+    \item \textbf{Evidence Types:} Peer-reviewed primary research, conference papers (e.g., NeurIPS, MICCAI), and systematic/scoping reviews for reference harvesting. 
+    \item \textbf{Grey Literature Policy:} Grey literature (e.g., technical reports, white papers, or pre-prints) will not be searched via primary repositories such as arXiv. However, grey literature will be considered for inclusion if identified through citation searching (snowballing) or if cited within the primary studies retrieved from the indexed databases.
+\end{itemize}
+
+
+
+
+
+\section{Methodology}
+\label{method}
+
+\subsection{Framework and Design}
+
+Given the characteristics of the LMM-CDS research landscape, this study employs a \textit{scoping review} design to comprehensively synthesize the extant literature, with an emphasis on systematic evidence mapping and the identification of knowledge gaps. To balance methodological rigor with feasibility, a formal critical appraisal of individual study quality is not undertaken, consistent with prevailing conventions for scoping reviews that prioritize evidence mapping and gap detection over the evaluation of intervention effectiveness \citep{Aromataris2024JBI}.
+
+This scoping review is conducted in accordance with the Joanna Briggs Institute (JBI) methodological framework \cite{Aromataris2024JBI} and reported following the PRISMA-ScR guidelines to ensure comprehensive transparency \cite{Tricco2018}. To address the integration of artificial intelligence (AI) as a methodological tool, the review incorporates the PRISMA-trAIce extension which is a discipline-agnostic checklist designed to facilitate the transparent reporting of AI-assisted steps—such as screening and data handling—across all stages of evidence synthesis \cite{holst2025prisma_traice}. The collective application of these standards supports methodological reproducibility while providing a foundation for mapping the current evidence base, delineating research gaps, and informing the direction of future research.
+
+\subsection{Search Strategy:}
+
+The search strategy will follow the JBI three-step process to ensure a comprehensive, transparent, and reproducible identification of both published and grey literature \cite{Aromataris2024JBI}. In alignment with the Decision-Centric Framework, the strategy is calibrated to capture the intersection of clinical reasoning trajectories and LMM architectural responses.
+
+
+\subsubsection{Initial Exploratory Search}
+
+We rely on the preliminary search to prove uniqueness to find some foundational works to. This process, executed in February 2026, functioned as the foundational anchor for defining the boundaries of both the clinical Problem Space and the technical Solution Space. A systematic audit was conducted across PubMed, IEEE Xplore, Web of Science, and the JBI Evidence Synthesis journal. Formal registry searches were simultaneously performed within OSF Registries and PROSPERO to verify that no existing or in-progress protocols address the integration of a decision-centric framework with Large Multimodal Model (LMM) architectural functionalities.
+
+The exploratory search identified several foundational works, particularly regarding Multi-Agent Systems (MAS) in high-criticality healthcare. This preliminary inquiry was instrumental in refining the final search strings through the identification of high-frequency index terms, it allowed for the precise establishment of inclusion constraints, specifically the exclusion of administrative automation and patient-facing applications, to ensure a dedicated focus on the workflow of the Digital Practitioner.
+
+To reduce the likelihood of missing new technical reports or recently registered protocols that have not yet been indexed in conventional databases, this stage was supplemented with AI-based discovery using Perplexity and NotebookLM. These tools supported a broad mapping of the current state-of-the-art literature, with particular attention to how clinical requirements are presently driving technical shifts toward Retrieval-Augmented Generation (RAG) and specialized inferential architectures. The sources identified by these systems were then examined to determine whether they should be incorporated into the preliminary findings presented in the introduction.
+
+
+\subsubsection{Comprehensive Search Strategy}
+
+To capture the multidimensional intersection of clinical reasoning and architectural responses, three primary databases were selected based on their specific indexing strengths and the necessity of cross-validating the Problem-Solution overlap. This triad ensures that the search captures high-impact medical research, cutting-edge technical innovations, and the interdisciplinary synthesis required for a decision-centric review.
+
+\textbf{PubMed} (National Library of Medicine) serves as the primary reference source for the clinical domain. It offers dedicated indexing of peer-reviewed biomedical literature and MEDLINE records, ensuring that the studies identified are firmly aligned with established clinical practice workflows. Its use is essential for specifying the boundaries of the Digital Practitioner role and for articulating the established concept of a Clinical Decision Support System, which is represented as a medical subheading in MeSH.
+
+\textit{Search String (PubMed):}
+\begin{center}
+\texttt{("Decision Support Systems, Clinical"[MeSH]) AND ("Large language model"[tiab] OR "LLM"[tiab] OR "large multimodal model"[tiab] OR "LMM"[tiab] OR "multimodal large language model"[tiab]) AND (2023:2026[pdat]) AND (english[lang])}
+\end{center}
+
+\textbf{IEEE Xplore} (Institute of Electrical and Electronics Engineers) serves as the primary repository for the technical \textit{Solution Space}. Given that LMM architectures, Multi-Agent Systems (MAS), and RAG frameworks often debut in conference proceedings before journal publication, IEEE Xplore is essential for capturing the earliest dissemination of algorithmic innovations.
+
+\textit{Search String (IEEE Xplore):}
+\begin{center}
+\texttt{(("Abstract":"Large language model" OR "Document Title":"Large language model") OR ("Abstract":"LLM" OR "Document Title":"LLM") OR ("Abstract":"large multimodal model" OR "Document Title":"large multimodal model") OR ("Abstract":"LMM" OR "Document Title":"LMM") OR ("Abstract":"multimodal large language model" OR "Document Title":"multimodal large language model")) AND (("Abstract":"clinical decision support system*" OR "Document Title":"clinical decision support system*"))}
+\end{center}
+
+\textbf{Web of Science} (Clarivate) is included to provide \textit{Integrative Breadth}, functioning as a multidisciplinary anchor that captures the social, ethical, and cross-domain implications of AI deployment. Its comprehensive indexing of citation networks allows for mapping the evolution of Trustworthy AI across diverse scientific fields, bridging the gap between theoretical computer science and practical medical ethics. This selection provides a robust mechanism for identifying multidisciplinary studies that may be absent from specialized indices, thereby minimizing selection bias.
+
+\textit{Search String (Web of Science):}
+\begin{center}
+\texttt{TS=("Large language model" OR "LLM" OR "large multimodal model" OR "LMM" OR "multimodal large language model") AND TS=("clinical decision support system*") AND PY=(2023-2026)}
+\end{center}
+
+\subsubsection{Supplementary Searching}
+
+To ensure maximal coverage and identify relevant literature that may reside outside the search strategy, a supplementary search will be executed. This approach combines traditional bibliographic techniques with AI-augmented discovery, ensuring that the review captures the most current technical advancements and regulatory frameworks.
+
+A manual citation snowballing process will be applied to all articles selected for inclusion. Backward citation searching will involve a thorough review of reference lists to identify seminal foundational works. Forward citation searching will be conducted using Google Scholar and Web of Science to identify more recent studies that have cited the primary inclusions. 
+
+In recognition of the decentralized nature of current AI research, traditional database queries will be complemented by a semi-automated discovery phase utilizing AI-driven search tools (e.g., Perplexity, Elicit, or Consensus). The specific selection of these tools will be finalized during the execution phase, following iterative testing to determine which platforms yield the highest precision for the technical-clinical intersection.
+
+Every reference identified through AI-augmented methods will undergo strict manual verification by the research team to ensure it meets the established inclusion criteria and aligns with the clinical decision-centric scope. To maintain the highest standards of transparency and reproducibility in line with JBI and PRISMA-ScR guidelines, the final research paper will provide a comprehensive report on the AI tools utilized. This report will include the versions of the models, the specific prompting strategies (system and user prompts) employed for discovery, and the dates of the search execution.
+
+
+\subsection{Eligibility Criteria and Study Selection}
+
+Inclusion criteria covered peer-reviewed articles, preprints, and relevant grey literature that examined AI architectures, algorithms, or frameworks. Studies were excluded if they were not related to LMM-CDSS, did not involve clinical decision-making (e.g., administrative applications of LLMs, educational uses, question-answering systems), focused on legacy transformers such as BERT or outdated model versions, or were opinion pieces or conceptual works lacking substantial technical content.
+
+The selection process uses a hybrid screening pipeline in which human and AI-driven document analysis are deployed at different levels. All screening data, decisions, and technical justifications will be captured in a structured database (Excel) and processed using Python to ensure methodological transparency.
+
+\textbf{Stage 1: Hybrid Screening:} In this stage, the search results are assessed in parallel using two separate methods; in both, a tag will be available to indicate that a "Full Evaluation Required" recommendation should be made.
+
+\begin{enumerate}
+\item \textbf{Human Review (Contextual/Surface):} Two independent reviewers will perform an initial screening using only the titles and abstracts. This phase aims to detect studies that match the predefined scope and will be carried out by completing an inclusion/exclusion checklist.
+
+\item \textbf{AI-Driven Analysis (Structural/Deep):} At the same time, an AI system will analyze the full document text for each identified record. The AI will complete the same inclusion/exclusion checklist as the human reviewers.
+\end{enumerate}
+
+\textbf{Stage 2: Reconciliation and Conflict Resolution:} The outcomes from both the human screening and the AI analysis will be integrated into a single evidence matrix. This results in three decision categories:
+\begin{enumerate}
+\item \textbf{High-Confidence Consensus:} Records where both human and AI assessments independently support inclusion or exclusion.
+\item \textbf{Technical Discrepancy:} Cases where a human reviewer identifies relevance in the abstract, but the AI full-text audit fails to find the required architectural attributes (or vice versa).
+\item \textbf{Complexity Tagging:} Records where either assessment flags the paper as "Full Evaluation Required" due to ambiguous reasoning trajectories.
+\end{enumerate}
+
+\subsection{Evidence Charting and Data Management}
+
+The extraction process will utilize a standardized table, iteratively refined to capture the intersection of clinical decision archetypes and LMM architectural responses. The final selection of studies will be archived in a version-controlled repository, stored primarily in .csv format to ensure long-term interoperability and immediate accessibility via Python-based analytical frameworks. This dataset functions as the formal evidentiary basis for the review, maintaining a granular audit trail that includes the rationale for inclusion or exclusion at every stage.
+
+The extraction instrument will systematically capture variables across three primary dimensions:
+\textit{(i) Study Characteristics} (authors, year, clinical specialty);
+\textit{(ii) The Problem Space} (decision criticality, reasoning trajectory, and workflow integration); and
+\textit{(iii) The Solution Space} (LMM architecture, use of Multi-Agent Systems, RAG implementation, and XAI functionality).
+
+\subsection{Python-Driven Synthesis and Visualization}
+
+Following the extraction phase, the raw data will be ingested into a Pandas dataframe for rigorous cleaning and synthesis. This computational approach allows for the automated validation of data consistency and the calculation of inter-rater reliability metrics between human and AI-assisted screening results.
+
+The final data synthesis will be visualized using Python libraries (e.g., Matplotlib, Seaborn) to produce evidence maps. These visualizations will include a PRISMA-ScR flow diagram detailing the study selection process and multidimensional charts mapping clinical constraints to architectural force functions. This programmatic pipeline ensures that the transition from raw search results to the final scoping review is reproducible and aligned with the project's decision-centric framework.
+
+
+
+\section*{Acknowledgment}
+
+This project has received funding from the European Union’s Horizon Europe research and innovation programme under the Marie Skłodowska-Curie grant agreement No 101168344. Views and opinions expressed are, however, those of the authors only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them. For the purpose of Open Access, the author has applied a CC BY public copyright license to any Author Accepted Manuscript version arising from this submission.
+
+
+
+\bibliographystyle{elsarticle-num-names} 
+\bibliography{cas-refs}
+
+\end{document}
