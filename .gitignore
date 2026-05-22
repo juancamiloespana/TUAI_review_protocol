@@ -1,5 +1,6 @@
 # Claude Code context files
 CLAUDE.md
+compile.sh
 
 # LaTeX build artifacts
 *.aux
@@ -18,6 +19,7 @@ CLAUDE.md
 *.nav
 *.snm
 *.vrb
+*.spl
 
 # Overleaf sync artifacts
 .overleaf/
