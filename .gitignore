@@ -1,0 +1,23 @@
+# Claude Code context files
+CLAUDE.md
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Overleaf sync artifacts
+.overleaf/

@@ -76,11 +76,10 @@
 % \end{abstract}
 
 
-% %% Keywords
-% \begin{keyword}
-% Artificial Intelligence \sep Large Language Model (LLM) \sep Large Multimodal Model (LMM), Clinical Decision Support System (CDSS) \sep Scoping review
-
-% \end{keyword}
+%% Keywords
+\begin{keyword}
+Clinical Decision Support Systems (CDSS) \sep Decision-Centric Framework \sep Large Language Models (LLM) \sep Large Multimodal Models (LMM) \sep Scoping Review Protocol
+\end{keyword}
 
 \end{frontmatter}
 
@@ -162,8 +161,10 @@ This review considers studies involving Digital Practitioners, defined as licens
     \item \textbf{Inclusion:} The system must produce patient-specific recommendations intended to support a clinical decision (e.g., diagnosis, treatment, prognosis, triage, or discharge planning).
 
     \item \textbf{Exclusion:} Non-Generative AI: Standalone traditional machine learning (e.g., Random Forest, CNN-only, SVM) or rule-based expert systems lacking a generative transformer-based core. Operational/Administrative Tasks: Tools used exclusively for administrative automation (e.g., automated scribing, billing, ICD coding) or general medical education/information retrieval without a patient-specific recommendation or decision context.
-    
+
 \end{itemize}
+
+\noindent\textbf{Terminological note — LMM vs.\ LLM:} This review adopts \textit{Large Multimodal Model} (LMM) as its primary term, consistent with the World Health Organization's \textit{Guidance on Large Multi-Modal Models} \cite{WHO2024LMM}, which reflects the architectural evolution of these systems beyond text-only processing toward the native integration of heterogeneous clinical data modalities—including medical imaging, structured time-series, and free-text records. The term LMM more precisely characterises the class of systems under review and signals the centrality of multimodality to the decision-centric framework employed here. Nevertheless, because the predominant portion of the indexed literature continues to use \textit{Large Language Model} (LLM) even when describing multimodal deployments, both terms are retained in all database search strings to ensure comprehensive retrieval. For the purposes of inclusion, LLM and LMM are treated as designating the same underlying class of generative, transformer-based architectures; the distinction is terminological rather than exclusionary.
 
 \subsection{Context:} The review encompasses all clinical environments where medical decisions are formulated, ranging from traditional infrastructure (Hospitals, Clinics, Emergency Departments) to resource-constrained settings (Rural, Remote, or Mobile-based care). Additionally, the setting includes computational environments to accommodate benchmark and validation studies that utilize standardized medical datasets.
 
